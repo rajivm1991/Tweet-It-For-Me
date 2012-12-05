@@ -27,3 +27,8 @@ and save the cronjob file.
 step3: Save your tweet messages one per line in the **tweet_stack.txt**
     
 step4: Just go and do your work or sleep :-).. your messeges will be one by one in 30 minute intervals.
+
+Note:
+-----
+
+You must register for Twitter API and fill your API credentials in the required place inside the **tweet_it_for_me.py** file
