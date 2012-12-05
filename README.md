@@ -10,9 +10,9 @@ Usage:
 
 Copy the **tweet** script file to your **/usr/bin/** directory
 
-- tweet "Hi [@rajivm1991](http://twitter.com/rajivm1991) Tweet-It-For-Me is awesome ;-)"
+- $ **tweet** "Hi [@rajivm1991](http://twitter.com/rajivm1991) Tweet-It-For-Me is very usefull"
     
-- tweet "Hi [@rajivm1991](http://twitter.com/rajivm1991) your blog [GulzarManzil.tk](http://gulzarmanzil.tk) is very beautiful"
+- $ **tweet** "Hi [@rajivm1991](http://twitter.com/rajivm1991) your blog [GulzarManzil.tk](http://gulzarmanzil.tk) is awesome ;-)"
 
 ### Automate your Tweets
 
