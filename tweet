@@ -1,0 +1,1 @@
+python ~/snowfall/snowspace/Tweet-It-For-Me/tweet_it_for_me.py "$@"
