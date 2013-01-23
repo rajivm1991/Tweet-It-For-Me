@@ -28,18 +28,42 @@ for tweet in sys.argv[1:]:
     tweet_list += make_tweet_list(tweet)
 if not tweet_list:
     tweet_list = pop_a_tweet()
+    
+#"""
 if tweet_list:
     from twitter import Api as TwitterApi
     print 'Attempting Twitter Api Login...'
     Twitter = TwitterApi(
-        consumer_key="Your Twitter CONSUMER_KEY",
-        consumer_secret="Your Twitter CONSUMER_SECRET",
-        access_token_key="Your Twitter ACCESS_TOKEN_KEY",
-        access_token_secret="Your Twitter ACCESS_TOKEN_SECRET"
+        consumer_key="2EcmmhEtu7jUjrNlzNw",
+        consumer_secret="W7I6ghHPwQNSqhElhc8OvFGoUZ84p4zCFUFipQFc",
+        access_token_key="229903866-PZc0fFbvrHJ8tbMwS6mQEVyfS07rio8ZcLhcAML1",
+        access_token_secret="JbHLzB5tLTIlJt3NUgLw44QseBIuErkZpb62c2tE"
     )
-    for tweet in tweet_list:
-        Twitter.PostUpdate(tweet)
-        print 'Tweeting:', tweet
-    print "Tweeted successfully!"
+    ME = Twitter.VerifyCredentials().screen_name
+    print "Current user is @" + ME
+    if tweet_list[0] == '-g':
+        user_list = tweet_list[1:]
+        if user_list:
+            for user in user_list:
+                print "The 5 recent tweets by " + user + ":"
+                print "=======================" + "=" * (len(user) + 1)
+                tweets = Twitter.GetUserTimeline(user[1:])
+                #count = 0
+                for tweet in tweets:
+                    #if count == 5: break;
+                    print "$", tweet.text
+                    #count += 1
+        else:
+            print "Recent tweets from friends:"
+            print "==========================="
+            for tweet in Twitter.GetFriendsTimeline():
+                if tweet.user.screen_name != ME:
+                    print "@" + tweet.user.screen_name + ":", tweet.text
+    else:
+        for tweet in tweet_list:
+            Twitter.PostUpdate(tweet)
+            print 'Tweeting:', tweet
+        print "Tweeted successfully!"
 else:
     print "Oops!. No tweets found in the tweet_stack!"
+#"""
