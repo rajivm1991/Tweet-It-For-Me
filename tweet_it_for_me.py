@@ -28,7 +28,7 @@ for tweet in sys.argv[1:]:
     tweet_list += make_tweet_list(tweet)
 if not tweet_list:
     tweet_list = pop_a_tweet()
-    
+
 #"""
 if tweet_list:
     from twitter import Api as TwitterApi
@@ -45,8 +45,9 @@ if tweet_list:
         user_list = tweet_list[1:]
         if user_list:
             for user in user_list:
-                print "The 5 recent tweets by " + user + ":"
-                print "=======================" + "=" * (len(user) + 1)
+                print
+                print "Recent tweets from " + user + ":"
+                print "===================" + "=" * (len(user) + 1)
                 tweets = Twitter.GetUserTimeline(user[1:])
                 #count = 0
                 for tweet in tweets:
@@ -54,6 +55,7 @@ if tweet_list:
                     print "$", tweet.text
                     #count += 1
         else:
+            print
             print "Recent tweets from friends:"
             print "==========================="
             for tweet in Twitter.GetFriendsTimeline():
