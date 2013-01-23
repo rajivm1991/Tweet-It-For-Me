@@ -34,10 +34,10 @@ if tweet_list:
     from twitter import Api as TwitterApi
     print 'Attempting Twitter Api Login...'
     Twitter = TwitterApi(
-        consumer_key="2EcmmhEtu7jUjrNlzNw",
-        consumer_secret="W7I6ghHPwQNSqhElhc8OvFGoUZ84p4zCFUFipQFc",
-        access_token_key="229903866-PZc0fFbvrHJ8tbMwS6mQEVyfS07rio8ZcLhcAML1",
-        access_token_secret="JbHLzB5tLTIlJt3NUgLw44QseBIuErkZpb62c2tE"
+        consumer_key="FILL YOUR TWITTER API CREDENTIAL HERE",
+        consumer_secret="FILL YOUR TWITTER API CREDENTIAL HERE",
+        access_token_key="FILL YOUR TWITTER API CREDENTIAL HERE",
+        access_token_secret="FILL YOUR TWITTER API CREDENTIAL HERE"
     )
     ME = Twitter.VerifyCredentials().screen_name
     print "Current user is @" + ME
