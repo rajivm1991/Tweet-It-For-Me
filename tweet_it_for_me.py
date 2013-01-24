@@ -1,3 +1,14 @@
+import os
+import sys
+from twitter import Api as TwitterApi
+
+DATA_DIR = os.path.dirname(os.path.abspath(__file__))
+STACK_FILE = os.path.join(DATA_DIR, 'tweet_stack.txt')
+CREDENTIALS = eval(
+    '(' + open(os.path.join(DATA_DIR,
+    'credentials.json')).read() + ')'
+)
+
 def make_tweet_list(tweet):
     if len(tweet) <= 140:
             return [tweet]
@@ -9,10 +20,7 @@ def make_tweet_list(tweet):
         return tweet_list
 
 
-def pop_a_tweet(tweet_stack='tweet_stack.txt'):
-    import os
-    DATA_DIR = os.path.dirname(os.path.abspath(__file__))
-    STACK_FILE = os.path.join(DATA_DIR, tweet_stack)
+def pop_a_tweet():
     tweets = open(STACK_FILE, 'r').readlines()
     if tweets:
         popped_tweet = tweets.pop().strip()
@@ -22,7 +30,6 @@ def pop_a_tweet(tweet_stack='tweet_stack.txt'):
         return make_tweet_list(popped_tweet)
 
 
-import sys
 tweet_list = []
 for tweet in sys.argv[1:]:
     tweet_list += make_tweet_list(tweet)
@@ -31,13 +38,12 @@ if not tweet_list:
 
 #"""
 if tweet_list:
-    from twitter import Api as TwitterApi
     print 'Attempting Twitter Api Login...'
     Twitter = TwitterApi(
-        consumer_key="FILL YOUR TWITTER API CREDENTIAL HERE",
-        consumer_secret="FILL YOUR TWITTER API CREDENTIAL HERE",
-        access_token_key="FILL YOUR TWITTER API CREDENTIAL HERE",
-        access_token_secret="FILL YOUR TWITTER API CREDENTIAL HERE"
+        consumer_key=CREDENTIALS.get("consumer_key"),
+        consumer_secret=CREDENTIALS.get("consumer_secret"),
+        access_token_key=CREDENTIALS.get("access_token_key"),
+        access_token_secret=CREDENTIALS.get("access_token_secret")
     )
     ME = Twitter.VerifyCredentials().screen_name
     print "Current user is @" + ME
