@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Tweet-it-for-me by rajivm1991</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Tweet-it-for-me</h1>
+        <h2>Very simple app for tweeting a message to twitter wall. You can either use it in commandline to tweet your message or Save your tweets in tweet_stack.py and tell the cronjob to automatically send tweets for you. ~ Enjoy Tweeting</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/rajivm1991/Tweet-It-For-Me/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/rajivm1991/Tweet-It-For-Me/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/rajivm1991/Tweet-It-For-Me" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="tweet-it-for-me" class="anchor" href="#tweet-it-for-me"><span class="octicon octicon-link"></span></a>Tweet-It-For-Me</h1>
+
+<p>A Very simple app for tweeting a message to twitter wall and get your friends tweets. You can either use it in command line to tweet your message or Save your tweets in tweet_stack.txt and tell the cronjob to automatically send tweets for you. ~ Enjoy Tweeting</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage:</h2>
+
+<h3>
+<a name="commandline-usage" class="anchor" href="#commandline-usage"><span class="octicon octicon-link"></span></a>Commandline usage:</h3>
+
+<p>Copy the <strong>tweet</strong> script file to your <strong>/usr/bin/</strong> directory</p>
+
+<h4>
+<a name="to-tweet-a-tweet" class="anchor" href="#to-tweet-a-tweet"><span class="octicon octicon-link"></span></a>To Tweet a tweet:</h4>
+
+<ul>
+<li><p>$ <strong>tweet</strong> "Hi <a href="http://twitter.com/rajivm1991">@rajivm1991</a> Tweet-It-For-Me is very usefull"</p></li>
+<li><p>$ <strong>tweet</strong> "Hi <a href="http://twitter.com/rajivm1991">@rajivm1991</a> your blog <a href="http://gulzarmanzil.tk">GulzarManzil.tk</a> is awesome ;-)"</p></li>
+</ul><h4>
+<a name="to-get-your-friendss-recent-tweets" class="anchor" href="#to-get-your-friendss-recent-tweets"><span class="octicon octicon-link"></span></a>To Get your friends's recent tweets:</h4>
+
+<ul>
+<li>$ <strong>tweet</strong> -g</li>
+</ul><h4>
+<a name="to-get-the-recent-tweets-of-a-particular-users" class="anchor" href="#to-get-the-recent-tweets-of-a-particular-users"><span class="octicon octicon-link"></span></a>To Get the recent tweets of a particular user(s):</h4>
+
+<ul>
+<li>$ <strong>tweet</strong> -g <a href="http://twitter.com/rajivm1991">@rajivm1991</a> <a href="http://twitter.com/ijeyanthan">@ijeyanthan</a>
+</li>
+</ul><h3>
+<a name="automate-your-tweets" class="anchor" href="#automate-your-tweets"><span class="octicon octicon-link"></span></a>Automate your Tweets:</h3>
+
+<p>Open your terminal and follow the steps below,</p>
+
+<p>step1: $ crontab -e</p>
+
+<p>step2: Add the line</p>
+
+<pre><code>0,30 * * * * python ~/snowfall/snowspace/Tweet-It-For-Me/tweet_it_for_me.py
+</code></pre>
+
+<p>and save the cronjob file.</p>
+
+<p>step3: Save your tweet messages one per line in the <strong>tweet_stack.txt</strong></p>
+
+<p>step4: Just go and do your work or sleep :-).. your messeges will be one by one in 30 minute intervals.</p>
+
+<h2>
+<a name="note" class="anchor" href="#note"><span class="octicon octicon-link"></span></a>Note:</h2>
+
+<ul>
+<li><p>You must register for Twitter API and fill your API credentials in the <strong>credentials.json</strong> file</p></li>
+<li><p><strong>snowfall/snowspace/Tweet-It-For-Me/tweet_it_for_me.py</strong> is where I saved my files, you give your file path in both <strong>cronjob</strong> and <strong>tweet</strong> script file also.</p></li>
+</ul>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
